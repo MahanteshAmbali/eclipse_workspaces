@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.oneToMany">
+
+    <class name="Answer" table="Answer_Table">
+        <id name = "id" column = "ANS_ID">
+        	<generator class="increment"></generator>
+        </id>
+        
+        <property name="answername" column = "ANS_NAME"></property>
+        
+        <property name="postedBy" column = "POSTED_BY"></property>
+        
+    </class>
+
+</hibernate-mapping>
+

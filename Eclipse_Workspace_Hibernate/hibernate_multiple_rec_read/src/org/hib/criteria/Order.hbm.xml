@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.criteria">
+
+    <class name="Order" table="Order_Management" lazy = "false">
+        <id name="orderId" column="ORDER_ID"/>
+        
+        <property name="customerName" column = "CUST_NAME"/>
+        
+        <property name="quantity"  column = "QUANTITY"/>
+        
+ 		<property name = "price" column = "PRICE"/>
+ 		
+    </class>
+
+</hibernate-mapping>
+

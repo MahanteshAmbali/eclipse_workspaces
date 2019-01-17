@@ -1,0 +1,41 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.username">hibernate</property>
+        <property name="hibernate.connection.password">hibernate</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+        
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        
+        <!-- ****************************************************************** -->
+        		<!-- Use for UniDir Mapping without anootation   -->
+        <!-- ****************************************************************** -->
+	       	 <!-- <mapping resource = "org/hib/oneToOne/uniDir/WithoutAnno/Student.hbm.xml"/>
+	         <mapping resource = "org/hib/oneToOne/uniDir/WithoutAnno/Address.hbm.xml"/> -->
+       	<!-- ****************************************************************** -->
+        		<!-- Use for UniDir Mapping with annotation -->
+        <!-- ****************************************************************** -->
+        <!-- <mapping class = "org.hib.oneToOne.uniDir.WithAnno.Student"/>
+        <mapping class = "org.hib.oneToOne.uniDir.WithAnno.Address"/> -->
+        
+        <!-- ****************************************************************** -->
+        			<!-- Use for BiDir Mapping without anootation   -->
+        <!-- ****************************************************************** -->
+        <mapping resource = "org/hib/oneToOne/BiDir/WithoutAnno/Student.hbm.xml"/>
+        <mapping resource = "org/hib/oneToOne/BiDir/WithoutAnno/Address.hbm.xml"/>
+       
+       
+       <!-- ****************************************************************** -->
+        		<!-- Use for BiDir Mapping with annotation -->
+        <!-- ****************************************************************** -->
+       <!--  <mapping class = "org.hib.oneToOne.BiDir.WithAnno.Student"/>
+        <mapping class = "org.hib.oneToOne.BiDir.WithAnno.Address"/> -->
+        
+    </session-factory>
+</hibernate-configuration>

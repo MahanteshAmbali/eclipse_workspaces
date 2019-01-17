@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.compositePrimaryKey">
+
+    <class name="Person" table="Person_Composite_PrimKey">
+    
+    	<composite-id name = "personPK"
+    				  class = "org.hib.compositePrimaryKey.PersonPK">
+    		<key-property name="personId" column = "person_Id"></key-property>
+    		<key-property name="personMailId" column = "person_MailId"></key-property>
+    	</composite-id>
+        
+        <property name="personFirstName" column = "FIrst_Name"/>
+        
+        <property name="personLastName" column = "Last_Name"/>
+
+        <property name="age" column = "AGe"/>
+        
+    </class>
+
+</hibernate-mapping>
+

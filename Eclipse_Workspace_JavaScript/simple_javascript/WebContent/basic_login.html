@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Basic Login Page</title>
+	<script type="text/javascript">
+	
+		function success(){
+			document.write("Login Success.!");
+		}
+		
+		function failure(){
+			document.write("Login Failed. Refresh to continue");
+		}
+		
+		var register = prompt("You are not registered, type a password to register");
+		if(register != ""){
+			var pass = prompt("Registered.! Enter same password to continue..!");
+			if(pass == register){
+				success();
+			}else{
+				failure();
+			}
+		}else{
+			alert("Type anything. Refresh to continue.");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

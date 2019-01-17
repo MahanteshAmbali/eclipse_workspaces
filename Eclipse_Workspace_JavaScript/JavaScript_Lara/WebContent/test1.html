@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Simple Validation</title>
+
+<script type="text/javascript">
+	function validateFields(){
+		var f1 = document.forms[0];
+		var p1 = f1.param1;
+		if(p1.value.length == 0){
+			alert("Please Enter Param1");
+			p1.focus();
+			return false;
+		}	
+		
+		var p2 = f1.param2;
+		if(p2.value.length == 0){
+			alert("Please Enter Param2");
+			p2.focus();
+			return false;
+		}	
+	}
+</script>
+</head>
+<body>
+	<form action = "success.html">
+		Parameter 1: 
+			<input type = "text" id = "param1"/> </br></br>
+		Parameter 2:
+			<input type = "text" id = "param2"/> </br></br>
+			
+		<input type = "submit" onclick="return validateFields()" value = "Submit">
+	</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.oneToMany">
+
+    <class name="Question" table="Question_Table">
+        <id name = "id" column = "Q_ID">
+        	<generator class="sequence">
+        		<param name="sequence">que_seq</param>
+        	</generator>
+        </id>
+        
+        <property name="qname" column = "Q_Name"></property>
+        
+        <list name="answers" table = "ANSWERS" cascade="all">
+        	<key column = "q_id"></key>
+        	<index column = "type"></index>
+        	<one-to-many class="Answer"/>
+        </list>
+    </class>
+
+</hibernate-mapping>
+

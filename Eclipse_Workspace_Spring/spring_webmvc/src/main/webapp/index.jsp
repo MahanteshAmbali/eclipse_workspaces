@@ -1,0 +1,1 @@
+<a href="goToRegistration">Registration</a></br>

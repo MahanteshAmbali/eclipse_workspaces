@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hibernate.many_to_many">
+
+    <class name="Batches" table="Batches_Many_Many">
+        <id name="bId" column="Batch_Id">
+        	<generator class="sequence">
+        		<param name="sequence">bat_seq</param>
+        	</generator>
+        </id>
+        
+        <property name="courseName" column = "Course_name"/>
+        
+        <property name="duration" column = "Duration" />
+
+		<set name="students" table = "s_b" inverse="true">
+			<key column = "b_id"></key>
+			<many-to-many column = "s_id" class = "Student"></many-to-many>
+		</set>        
+    </class>
+
+</hibernate-mapping>
+

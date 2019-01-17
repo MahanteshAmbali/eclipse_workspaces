@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Form</title>
+<script type="text/javascript">
+	function validateForm(){
+		var f1 = document.forms[0];
+		var username = f1.username;
+		if(username.value.length == 0){
+			alert("Username is Mandatory");
+			username.focus();
+			return false;
+		}
+		
+		var password = f1.password;
+		if(password.value.length == 0){
+			alert("Password is Mandatory");
+			password.focus();
+			return false;
+		}
+		
+		var gender = f1.gender;
+		var flag = true;
+		for(var i = 0; var < gender.length; i++){
+			if(gender[i].checked){
+				flag = false;
+				break;
+			}
+		}
+		if(flag){
+			alert("Please select Gender");
+			gender[0].focus();
+			return false;
+		}
+		
+		var skills = f1.skills;
+		flag = true;
+		for(var i = 0; i< skills.length; i++){
+			if(skills[i].checked){
+				flag = false;
+				break;
+			}
+		}
+		
+		if(flag){
+			alert("Please select skills");
+			skills[0].focus();
+			return false;
+		}
+		
+		var education = f1.education;
+		if(education.value = "select"){
+			alert("Please selct education");
+			education.focus();
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="success.html">
+	(* Mandatory Fields..)</br></br>
+		*UserName : 
+			<input type = "text" name = "username"/> </br>
+		*Password :
+			<input type = "password" name = "password"/> </br>
+		*Address:
+			<textarea rows="5" cols="15" name = "address"></textarea></br>
+		*Gender:
+			<input type = 'radio' name = "gender" value = "M">Male
+			<input type = 'radio' name = "gender" value = "FM">Female</br>
+		*Skills:
+			<input type = "checkbox" name = "skills" value = "C">C
+			<input type = "checkbox" name = "skills" value = "Cpp">C++
+			<input type = "checkbox" name = "skills" value = "Java">Java</br>
+		*Education:
+			<select name = "education">
+				<option value = "select">Select</option>
+				<option value = "be">B.E</option>
+				<option value = "bca">B.C.A</option>
+				<option value = "mtech">M.Tech</option>
+				<option value = "mca">M.C.A</option>
+			</select></br>
+		
+		<input type = "submit" value = "Submit" onclick="return validateForm()">
+	</form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.sqlquery.xml">
+
+    <class name="Person" table="Person_Criteria_API">
+     
+        <id name="personId" column="PERSON_ID">
+        <generator class="increment"/>
+        </id>
+        <property name="personFirstName" column = "FirstName"/>
+        
+        <property name="personAddress" column = "Address"/>
+
+        <property name="personEducation" column = "Education"/>
+        
+        <property name="personAge" column = "Age" />
+        
+        <property name="personSalary" column = "Salary"/>
+    </class>
+
+<sql-query name = "q1"> select * from Person_Criteria_API</sql-query>
+
+<sql-query name = "q2"> select * from Person_Criteria_API where firstname like ? and age > ?</sql-query>
+
+<sql-query name = "q3"> select firstname , age from Person_Criteria_API where salary > =:arg0</sql-query>
+
+<sql-query name = "q4"> select salary from Person_Criteria_Api</sql-query>
+
+<sql-query name = "q5">
+<return-scalar column = "salary"
+			   type = "java.lang.Integer"/>
+select salary from Person_Criteria_Api</sql-query>
+			   
+<sql-query name = "q6">
+	<return-scalar column = "Salary"
+				   type = "java.lang.Integer"/>
+	select salary from Person_Criteria_Api where age > =:arg0
+</sql-query> 
+
+<sql-query name = "q7">
+	create table vishal_paji
+</sql-query>
+
+</hibernate-mapping>
+

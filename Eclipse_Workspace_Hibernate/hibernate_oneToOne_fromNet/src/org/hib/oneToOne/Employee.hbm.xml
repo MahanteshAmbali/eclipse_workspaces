@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.oneToOne">
+
+    <class name="Employee" table="Employee1_One_To_One">
+        <id name="empId" column="Emp_Id">
+        	<generator class="increment">
+        	</generator>
+        </id>
+        
+        <property name="firstName" column = "First_Name"/>
+        
+        <property name="lastName" column = "Last_Name"/>
+        
+        <one-to-one name="address" 
+        			class = "Address"></one-to-one>
+    </class>
+
+</hibernate-mapping>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.genType">
+
+    <class name="Person" table="PERSON_Gen_Type_Squence">
+    	
+        <id name="pId">
+        	<generator class="sequence_identity">
+        		<param name="sequence">p_seq</param>
+        	</generator>
+        </id>
+        
+        <property name="fName"/>
+        
+        <property name="lName"/>
+        
+    </class>
+
+</hibernate-mapping>
+

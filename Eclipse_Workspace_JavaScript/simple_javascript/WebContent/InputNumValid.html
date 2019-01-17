@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Input Number Vaalidation</title>
+<script type="text/javascript">
+	function validateInput(){
+		var value = document.getElementById("result");
+		value.innerHTML= " ";
+		try {
+			var inputVal = document.getElementById("inputVal").value;
+			if(inputVal == "") throw "Empty";
+			if(isNaN(inputVal)) throw "Not a Number";
+			if(inputVal > 10) throw "Greater than 10";
+			if(inputVal < 5) throw "Less than 5";
+			if(inputVal >= 5 && inputVal <= 10) value.innerHTML = "Congrats.!";
+		} catch (e) {
+			// TODO: handle exception
+			value.innerHTML= "Error:" + e + " ." ;
+		}
+	}
+</script>
+</head>
+<body>
+	<p> Input a number between 5 & 10</p>
+	<input id = "inputVal" type = "text"/></br></br>
+	<button type = "button" onclick="validateInput()">Validate Number</button>
+	<p id = "result"/>
+</body>
+</html>

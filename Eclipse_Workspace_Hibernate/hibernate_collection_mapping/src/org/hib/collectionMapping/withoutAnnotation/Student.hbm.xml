@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hib.collectionMapping">
+
+    <class name="Student" table="Student_Collection">
+        <id name="id" column="S_ID">
+        	<generator class="sequence">
+        		<param name="sequence">student_seq</param>
+        	</generator>
+        </id>
+                
+        <property name="firstName" column="First_Name"></property>
+        
+        <array name="projects" table = "Projects">
+        	<key column = "S_ID"></key>
+        	<list-index column = "SNO"></list-index>
+        	<element column = "Project_Name" type = "java.lang.String"></element>
+        </array>
+        
+        <bag name="skills" table = "Skills">
+        	<key column = "S_ID"></key>
+        	<element column = "Skill_Name" type = "java.lang.String"></element>
+        </bag>
+        
+        <list name="marks" table = "Marks">
+        	<key column="S_ID"/>
+        	<list-index column = "SNO"></list-index>
+        	<element column = "Marks" type = "java.lang.Integer"></element>
+        </list>
+        
+        <set name="jobs" table = "JOBS">
+        	<key column="S_ID"/>
+        	<element column="job" type = "java.lang.String"></element>
+        </set>
+        
+        <map name="education" table = "Educations">
+        	<key column = "S_ID"></key>
+        	<map-key column = "EDU_NAME" type = "java.lang.String"></map-key>
+        	<element column = "EDUCATION" type ="java.lang.String"></element>
+        </map>
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<bean id = "advice1" class = "com.lara.beforeAdvice.Advice1"/>
+		
+	<bean id = "aspect1" 
+				  class = "org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice" ref = "advice1"></property>
+		<property name="pattern" value = ".*"></property>
+	</bean>
+	
+	<bean id = "hello" class = "com.lara.beforeAdvice.HelloImpl"/>
+	
+	<bean id = "advisedH1" class = "org.springframework.aop.framework.ProxyFactoryBean">
+	
+		<property name="proxyInterfaces" value = "com.lara.beforeAdvice.Hello"></property>
+		<property name="target" ref = "hello"></property>
+		<property name="interceptorNames">
+			<list>
+				<value>aspect1</value>
+			</list>
+		</property>	
+	</bean>
+	
+	<bean id = "advice2" class = "com.lara.afterAdvice.Advice2"/>
+	
+	<bean id = "aspect2"
+		  class = "org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		  <property name="advice" ref = "advice2"></property>
+		  <property name="pattern" value = ".*"></property>
+	</bean>
+	
+	<bean id = "greeting" class = "com.lara.afterAdvice.GreetingImpl"></bean>
+	
+	<bean id = "advisedH2"
+		  class = "org.springframework.aop.framework.ProxyFactoryBean">
+		  
+		  <property name="proxyInterfaces" value = "com.lara.afterAdvice.Greeting"></property>
+		  <property name="target" ref = "greeting"></property>
+		  <property name="interceptorNames">
+		  	<list>
+		  		<value>aspect2</value>
+		  	</list>
+		  </property>
+	</bean>
+	
+	<bean id = "advice3" class = "com.lara.aroundAdvice.Advice3"></bean>
+	
+	<bean id = "aspect3" 
+	      class = "org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+	 	
+	 	<property name="advice" ref = "advice3"></property>
+	 	<property name="pattern" value = ".*"></property>     
+	</bean>
+	
+	<bean id = "book" class = "com.lara.aroundAdvice.BookImpl"></bean>
+	
+	<bean id = "advicedH3"
+		  class = "org.springframework.aop.framework.ProxyFactoryBean">
+			
+		  <property name="proxyInterfaces" value = "com.lara.aroundAdvice.Book"></property>
+		  <property name="target" ref = "book"></property>
+		  <property name="interceptorNames">
+		  	<list>
+		  		<value>aspect3</value>
+		  	</list>
+		  </property>	  
+		  
+	</bean>
+	
+	<bean id = "advice4" class = "com.lara.throwsAdvice.Advice4"></bean>
+	
+	<bean id = "aspect4" class = "org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice" ref = "advice4"></property>
+		<property name="pattern" value = ".*"></property>
+	</bean>
+	
+	<bean id= "person" class = "com.lara.throwsAdvice.PersonImpl"/>
+	
+	<bean id = "advicedH4"
+		  class = "org.springframework.aop.framework.ProxyFactoryBean">
+		  <property name="proxyInterfaces" value = "com.lara.throwsAdvice.Person"></property>
+		  <property name="target" value = "person"></property>
+		  <property name="interceptorNames">
+		  	<list>
+		  		<value>aspect4</value>
+		  	</list>	
+		  </property>
+	</bean>	
+</beans>

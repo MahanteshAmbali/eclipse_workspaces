@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.oneToMany.Bi.NoAnno">
+
+    <class name="Student" table="Student_One_To_Many_Bi_No_Ann">
+        <id name="id" column="S_ID">
+        	<generator class="increment">
+        	</generator>
+        </id>
+        
+        <property name="firstName"/>
+        
+        <property name="lastName" />
+        
+        <array name="mails" cascade="all">
+			<key column = "student_id"></key>
+			<index column = "sno"></index>
+			<one-to-many class = "Mails"/>
+        </array>
+        
+    </class>
+
+</hibernate-mapping>
+

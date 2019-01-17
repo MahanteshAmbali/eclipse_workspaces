@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://www.springframework.org/schema/beans">
+	
+	<bean id = "addr" class = "com.lara.beans.Address">
+		<property name = "houseNo" value = "123/B"/>
+		<property name = "streetName" value = "BTM 2nd Stage"/>
+	</bean>
+	
+	<bean id = "empl" class = "com.lara.beans.Employee">
+		<constructor-arg index = "0" value = "abc"/>
+		<constructor-arg index = "1" value = "28"/>
+		<constructor-arg index = "2" value = "81"/>
+		<constructor-arg index = "3">
+			<list>
+				<value>adf@lara.com</value>
+				<value>adf@lara.com</value>
+				<value>adf@lara.com</value>
+			</list>
+		</constructor-arg>
+		
+		<constructor-arg index = "4">
+			<list>
+				<value>1234567890</value>
+				<value>9876543210</value>
+			</list>
+		</constructor-arg>
+		
+		<constructor-arg index = "5">
+			<set>
+				<value>JAVA</value>
+				<value>J2EE</value>
+				<value>C++</value>
+			</set>
+		</constructor-arg>
+		
+		<constructor-arg index = "6">
+			<map>
+				<entry key = "k1" value = "B.Tech"/>
+				<entry key = "k2" value = "M.Tech"/>
+			</map>
+		</constructor-arg>
+		
+		<constructor-arg index = "7">
+			<props>
+				<prop key = "mini">Java</prop>
+				<prop key = "major">J2EE"</prop>
+			</props>
+		</constructor-arg>
+		
+		<constructor-arg index = "8" ref = "addr"/>
+	</bean>
+</beans>

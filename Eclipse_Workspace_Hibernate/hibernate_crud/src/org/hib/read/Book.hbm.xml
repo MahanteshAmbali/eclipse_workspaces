@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.read">
+
+    <class name="Book" table="Book1">
+        <id name="bid" column="Book_Id"></id>
+        
+        <property name="bookName" column = "Book_Name"/>
+        
+        <property name="authorName" column="Author_Name"/>
+        
+    </class>
+
+</hibernate-mapping>
+

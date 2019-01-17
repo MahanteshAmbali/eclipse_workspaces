@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3c.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans	
+	   	http://www.springframework.org/schema/spring-beans-2.5.xsd"> -->
+	   	
+<!-- <beans xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						   http://www.springframework.org/schema/beans/spring-beans.xsd" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xmlns="http://www.springframework.org/schema/beans"> -->
+	   
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<bean id = "urlMapping"
+		  class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		  <property name = "mappings">
+		  	<props>
+		  		<prop key = "login.do">loginSettings</prop>
+		  		<!-- <prop key = "reg.do">regController</prop> -->
+		  	</props>
+		  </property>
+	</bean>	   	
+	
+	<bean id = "loginSettings"  class = "org.spring.mvc.LoginController">
+	
+		  <property name = "formView" value = "login.jsp"></property>
+		  
+		  <property name = "successView" value = "success.jsp"></property>
+		  
+		  <property name = "commandClass" value = "org.spring.mvc.LoginForm"></property>
+		  
+		  <property name = "commandName" value = "loginForm"></property>
+		  
+		  <property name = "validator" ref = "loginValidator"></property>
+		  
+	</bean>	
+	
+	<bean id = "loginValidator"
+		  class = "org.spring.mvc.LoginValidator"/>
+</beans>
+
+
+
+
+
+
+
+
+
+

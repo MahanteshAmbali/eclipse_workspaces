@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib">
+
+    <class name="Company" table="Company_Main">
+        <id name="companyId" column="COMPANY_ID"/>
+        
+        <property name="companyName"/>
+        
+        <property name="companyAddress" />
+
+        <property name="companyStreetName" />
+        
+        <component name = "project" class = "org.hib.Project">
+        	<property name="projectTitle"></property>
+        	<property name="projectCustomerName"></property>
+        	<property name="projectDuration"></property>
+        	
+        	<component name="employee" class = "org.hib.Employee">
+        		<property name="firstName"></property>
+        		<property name="lastName"></property>
+        		
+        		<component name="education" class = "org.hib.Education">
+        			<property name="degreeName"></property>
+        			<property name="yearOfPassing"></property>
+        		</component>
+        		
+        		<component name="address" class = "org.hib.Address">
+        			<property name="houseNumber"></property>
+        			<property name="streetName"></property>
+        		</component>
+        	</component>
+        </component>
+    </class>
+
+</hibernate-mapping>
+

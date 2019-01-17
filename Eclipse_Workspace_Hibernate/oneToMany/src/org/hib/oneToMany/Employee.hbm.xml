@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.oneToMany">
+
+    <class name="Employee" table="Emp_Many_AccNo">
+        <id name="empId" column="EMP_ID">
+        	<generator class="increment"></generator>
+        </id>
+        
+        <property name="firstName" column = "First_Name"/>
+        
+        <property name="lastName"  column = "Last_Name"/>
+
+       <array name="accountNumbers" cascade="all">
+       	<key column = "emp_id"></key>
+       	<index column = "sno"></index>
+       	<one-to-many class = "AccountNumber"/>
+       </array>
+        
+    </class>
+
+</hibernate-mapping>
+

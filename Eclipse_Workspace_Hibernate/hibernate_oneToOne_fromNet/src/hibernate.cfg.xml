@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.username">hibernate</property>
+        <property name="hibernate.connection.password">hibernate</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+        
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.show_sql">true</property>
+        
+        <!-- <mapping resource = "org/hib/oneToOne/Employee.hbm.xml"/>
+        <mapping resource = "org/hib/oneToOne/Address.hbm.xml"/> -->
+        
+       <!--  <mapping class = "org.hib.oneToOneAnno.Employee"/>
+        <mapping class = "org.hib.oneToOneAnno.Address"/> -->
+        
+        <mapping resource = "org/hib/oneToMany/Answer.hbm.xml"/>
+        <mapping resource = "org/hib/oneToMany/Question.hbm.xml"/>
+        
+    </session-factory>
+</hibernate-configuration>

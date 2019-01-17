@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.connection.password">Password123#</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+        
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.show_sql">true</property>
+        
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.SingletonEhCacheRegionFactory</property>
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property> 
+        <!--  <property name="net.sf.ehcache.configurationResourceName">myehcache.xml</property>-->
+        
+        
+        <!-- <property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</property>
+        <property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property> -->
+        
+        <mapping resource = "org/hibernate/cacheManagement/Person.hbm.xml"/>
+        
+    </session-factory>
+</hibernate-configuration>

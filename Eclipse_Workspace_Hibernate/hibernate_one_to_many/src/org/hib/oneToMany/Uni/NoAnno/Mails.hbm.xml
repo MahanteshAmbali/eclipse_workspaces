@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.oneToMany.Uni.NoAnno">
+
+    <class name="Mails" table="Mails_One_To_Many_No_Anno">
+        <id name="id" column="Mail_Id">
+        	<generator class="sequence">
+        		<param name="sequence">mail_seq</param>
+        	</generator>
+        </id>
+        
+        <property name="userName"/>
+        
+        <property name="passWord" />
+
+      	<many-to-one name="student"
+      				 class = "Student"
+      				 column = "Student_Id"
+      				 cascade="all"></many-to-one>
+        
+    </class>
+
+</hibernate-mapping>
+

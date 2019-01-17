@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CitiBankServiceImplProviderService" targetNamespace="http://impl.service.tesco.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.service.tesco.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://impl.service.tesco.com/" version="1.0" xmlns:tns="http://impl.service.tesco.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="validateCriditCard" type="tns:validateCriditCard"/>
+
+  <xs:element name="validateCriditCardResponse" type="tns:validateCriditCardResponse"/>
+
+  <xs:complexType name="validateCriditCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="validateCriditCardResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="validateCriditCard">
+    <wsdl:part name="parameters" element="tns:validateCriditCard">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validateCriditCardResponse">
+    <wsdl:part name="parameters" element="tns:validateCriditCardResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CitiBankServiceImplProvider">
+    <wsdl:operation name="validateCriditCard">
+      <wsdl:input name="validateCriditCard" message="tns:validateCriditCard">
+    </wsdl:input>
+      <wsdl:output name="validateCriditCardResponse" message="tns:validateCriditCardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CitiBankServiceImplProviderServiceSoapBinding" type="tns:CitiBankServiceImplProvider">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="validateCriditCard">
+      <soap:operation soapAction="urn:ValidateCriditCard" style="document"/>
+      <wsdl:input name="validateCriditCard">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validateCriditCardResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CitiBankServiceImplProviderService">
+    <wsdl:port name="CitiBankServiceImplProviderPort" binding="tns:CitiBankServiceImplProviderServiceSoapBinding">
+      <soap:address location="http://localhost:9999/CitiBankApplication/services/CitiBankServiceImplProviderPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

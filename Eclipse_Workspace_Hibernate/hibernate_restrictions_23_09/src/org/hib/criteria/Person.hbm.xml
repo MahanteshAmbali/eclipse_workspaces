@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.restriction">
+
+    <class name="Person" table="Person_Criteria_API">
+     
+        <id name="personId" column="PERSON_ID">
+        <generator class="increment"/>
+        </id>
+        <property name="personFirstName" column = "FirstName"/>
+        
+        <property name="personAddress" column = "Address"/>
+
+        <property name="personEducation" column = "Education"/>
+        
+        <property name="personAge" column = "Age" />
+        
+        <property name="personSalary" column = "Salary"/>
+    </class>
+
+</hibernate-mapping>
+

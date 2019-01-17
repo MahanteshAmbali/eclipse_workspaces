@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.oneToOne">
+
+    <class name="Address" table="Address1_One_To_One">
+        <id name="addId" column="Addr_Id">
+        	<generator class="foreign">
+        		<param name="property">employee</param>
+        	</generator>
+        </id>
+        
+        <property name="addressLine1" column = "Address_Line1"/>
+        
+        <property name="city" column = "City" />
+
+        <property name="state" column = "State"/>
+        
+        <one-to-one name="employee"
+        			class = "Employee"
+        			constrained="true"></one-to-one>
+    </class>
+
+</hibernate-mapping>
+

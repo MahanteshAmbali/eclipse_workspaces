@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+<hibernate-mapping>
+
+		<class name = "com.company.ordermanagement.hibernate.bean.CustomerDetails" table = "Customer_Details">
+	
+		<id name = "customerId" column = "CUSTOMER_ID"/>
+		<property name = "customerName" column = "CUSTOMER_NAME"/>
+		<property name = "customerLocation" column = "CUSTOMER_LOCATION"/>
+		<property name = "productName" column = "PRODUCT_NAME"/>
+		<property name = "productQuantity" column = "PRODUCT_QUANTITY"/>
+		<property name = "phoneNumber" column = "CUSTOMER_PHONE_NUMBER"/>
+	
+	</class>
+</hibernate-mapping>

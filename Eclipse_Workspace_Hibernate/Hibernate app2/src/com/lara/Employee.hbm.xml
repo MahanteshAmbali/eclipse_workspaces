@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<hibernate-mapping package="com.lara">
+	<class name="Employee" table="EMPLOYEE">
+		<id name="id" column="ID" />
+		<property name="FirstName" column="FIRSTNAME" />
+		<property name="LastName" column="LASTNAME" />
+		<property name="Address" column="ADDRESS" />
+		<property name="Salary" column="salary" />
+
+
+	</class>
+</hibernate-mapping>

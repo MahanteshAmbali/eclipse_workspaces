@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JavaScript Exception Handling</title>
+<script type="text/javascript">
+	function message(){
+	var hello = null;
+		try {
+			hello.length;
+		} catch (e) {
+			// TODO: handle exception
+			var message = "Exception Occured\n\n";
+			message = message + e.message;
+			
+			message = message + "\n\nClick Ok to Continue --->"
+			alert(message);
+		}
+	}
+
+</script>
+</head>
+<body>
+	<input type = "button" value = "Get Messgae" onclick = "message()"/>
+</body>
+</html>

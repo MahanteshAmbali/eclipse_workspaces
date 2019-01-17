@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.polymorphic">
+	<class name="Person" table="Person_Poly_Mapp_Discrim_Val" discriminator-value="p">
+        <id name="pId" column="PERSON_ID"/>
+        <discriminator column = "type" type = "java.lang.String"></discriminator>
+        <property name="fName"/>
+        <property name="lName"/>  
+        <subclass name = "Employee" discriminator-value="e">
+        	<property name="employeeAddress"></property>
+        	<property name="employeeEmailId"></property>
+        	<subclass name = "PermanentEmployee" discriminator-value="pe">
+        		<property name="peDesignation"></property>
+        		<property name="peSalary"></property>
+        	</subclass>
+        </subclass>      
+    </class>
+</hibernate-mapping>

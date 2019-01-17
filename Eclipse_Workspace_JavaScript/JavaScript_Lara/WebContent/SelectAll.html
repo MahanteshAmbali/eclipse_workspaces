@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Select All</title>
+<script type="text/javascript">
+	function selectAll(){
+		var formData = document.forms[0];
+		var checkedBoxes = formData.skills;
+		var selectAll = formData.selectAll;
+		
+		var i = 0, count = 0;
+		while(checkedBoxes[i].checked){
+			i++;
+			count++;
+		}
+		if(checkedBoxes.length == count){
+			formData.selectAll = true;
+		}
+		
+		if(checkedBoxes.length == 0 || checkedBoxes.length<3){
+			formData.selectAll = false;
+		}
+	}
+</script>
+</head>
+<body>
+		Skills:
+		<input type = "checkbox" name = "skills" value = 'c'>C
+		<input type = "checkbox" name = "skills" value = 'cpp'>C++
+		<input type = "checkbox" name = "skills" value = 'java'>Java
+		<input type = "checkbox" name = "skills" value = 'oracle'>Oracle</br></br>	
+	
+		<input type = "checkbox" name = "selectAll" onclick="selectAll()">Select All
+</body>
+</html>

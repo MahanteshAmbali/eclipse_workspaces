@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hib.polymorphic">
+	<class name = "Person" table = "Person_Poly_Map_Third">
+		<id name = "pId"></id>
+		<property name="fName" column = "F_NAME"></property>
+		<property name="lName" column = "L_NAME"></property>
+		
+		<joined-subclass name = "Employee" table = "Per_Emp_Poly_Map">
+			<key column = "pId"></key>														<!-- THIS LINE ACTS LIKE A FOREIGN KEY -->
+			<property name="employeeEmailId" column = "EMP_MAIL_ID"></property>
+			<property name="employeeAddress" column = "EMP_ADDR"></property>
+			
+			<joined-subclass name = "PermanentEmployee" table = "Per_PERm_Emp_Poly">
+				<key column = "pId" />														<!-- THIS LINE ACTS LIKE A FOREIGN KEY -->	
+				<property name="peDesignation" column = "PE_DESIGNATION"></property>
+				<property name="peSalary" column = "PE_SALARY"></property>
+			</joined-subclass>
+		</joined-subclass>
+	</class>
+</hibernate-mapping>

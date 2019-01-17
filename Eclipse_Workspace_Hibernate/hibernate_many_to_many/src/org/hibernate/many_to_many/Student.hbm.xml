@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.hibernate.many_to_many">
+
+    <class name="Student" table="Student_Many_to_Many">
+        <id name="sId" column="Student_Id">
+        	<generator class="sequence">
+        		<param name="sequence">stu_seq</param>
+        	</generator>
+        </id>
+        
+        <property name="firstName" column = "FirstName"/>
+        
+        <property name="lastName" column = "Lastname"/>
+
+		<set name="batches" table = "s_b">
+			<key column = "s_id"></key>
+			<many-to-many column = "b_id" class = "Batches"></many-to-many>
+		</set>        
+    </class>
+
+</hibernate-mapping>
+

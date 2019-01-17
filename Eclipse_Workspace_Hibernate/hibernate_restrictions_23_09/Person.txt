@@ -1,0 +1,9 @@
+1, Mahantesh, BTM, BE, 28, 48000
+2, Sagar, BLR, BTech, 29, 39402
+3, Vishal, BLR, BE, 39, 38103
+4, Anudeep, HYD, BE, 29, 32839
+5, Hareesh, HYD, BE, 38, 38508
+6, Aakash, MP, BE, 29, 50982
+7, Bhoopathi, TN, BE, 27, 39400
+8, Dushyanth, MP, BE, 28, 49290
+9, , KA, MCA, 90, 41237

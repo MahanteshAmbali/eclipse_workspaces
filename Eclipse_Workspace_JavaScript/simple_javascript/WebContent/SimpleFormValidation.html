@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Validate Input Name</title>
+
+<script type="text/javascript">
+	function validateInput(){
+		var fName = document.forms["myForm"]["fName"].value;
+		var email = document.forms["myForm"]["email"].value;
+		
+		var infinite = document.getElementById("infinity"); 
+		var finite = 100;
+		infinite.innerHTML = "";
+		
+		var atPos = email.indexOf("@");
+		var dotPos = email.lastIndexOf(".");
+		
+		if(fName == "" || fName == null){
+			alert("Firstname must be filled.!");
+			return false;
+		}else if(!(isNaN(fName))){
+			alert("Firstname Can't be a number.!");
+			return false;
+		}
+		
+		if(email == "" || email == null){
+			alert("Email must be filled.!");
+			return false;
+		}
+		if(atPos<2 || dotPos< atPos+2 || dotPos+2>email.length){
+			alert("Email not entered properly");
+			return false;
+		}
+		
+		while(finite != Infinity){
+			infinite.innerHTML = finite;
+			finite = finite * finite;
+		}
+		return true;
+	}
+	
+</script>
+</head>
+<body>
+<p id = "infinity"/>
+<form name = "myForm" onsubmit= "return validateInput()" method="post">
+	Firstname: <input type = "text" name = "fName"/><br><br>
+	
+	E-Mail ID: <input type = "text" name = "email"/><br><br>
+	
+	<input type = "submit" value = "Submit"/>
+	
+</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Disable Button</title>
+<script type="text/javascript">
+	var count = 1;
+	function disableButton(){
+		count++;
+		if(count % 2 == 0){
+			document.getElementById("but1").disabled = true;
+		}else{
+			document.getElementById("but1").disabled = false;
+		}
+	}
+
+</script>
+</head>
+<body>
+<form>
+	<button id = "but1">Button</button>
+	<br><br><br>
+</form>
+
+	<button id = "disableButton" onclick="disableButton()">Disable Button</button>
+</body>
+</html>

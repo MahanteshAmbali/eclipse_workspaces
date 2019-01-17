@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping	package = "com.lara.beans">
+
+	<class name = "Book" table = "BOOK">
+		<id name = "id" column = "ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="title" column = "TITLE"></property>
+		<property name="author" column = "AUTHOR"></property>
+	</class>
+</hibernate-mapping>

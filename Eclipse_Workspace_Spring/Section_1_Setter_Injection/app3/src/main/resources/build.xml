@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://www.springframework.org/schema/beans">
+	
+	<bean class="com.lara.beans.Student" id="stud">
+			<property value="suresh" name="firstName"/>
+			<property value="81.0" name="weight"/>
+			<property name="mails">
+				<list>
+					<value>mant@in.com</value>
+					<value>mahantesh@in.com</value>
+					<value>sager@in.com</value>
+				</list>
+			</property>
+	</bean>
+</beans>

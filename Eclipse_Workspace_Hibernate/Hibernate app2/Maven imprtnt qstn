@@ -1,0 +1,131 @@
+What is Maven?
+maven is a project management tool.it is based on project object model.
+.............................................................................................................................
+
+ What aspects are managed by Maven?
+ build
+ documentation
+ reporting
+ SCMs
+ releases
+ distribution
+ ....................................................................................................
+ 
+What are the advantages of Maven?
+No need to add jar file in each project
+Creates right directory structure
+Builds and deploys the project
+................................................................................................................................
+
+What is the command to check the maven version?
+mvn -version
+.....................................................................................................................................
+
+What does the build tool?
+1)Generates source code (if the auto-generated code is used)
+2)Generates documentation from source code
+3)Compiles source code
+4)Packages compiled code into a JAR or ZIP file
+5)Installs the packaged code in the local repository, server repository, or central repository.
+......................................................................................................................................
+
+ What is  Maven?
+
+It is a framework.
+It is mainly a project management tool.
+There is alife cycle.
+Maven has a convention to place source code, compiled code etc.
+Maven is declarative.
+The Maven plugins are reusable.
+..................................................................................................................................
+
+ Why is the use of the profile required in Maven?
+For providing probability to projects, we use profiles.
+.....................................................................................................................................
+
+What is the syntax for offline project creation?
+mvn o packag
+........................................................................................................................................
+
+How is the propagation of plugins to child POMs stopped?
+set<inherited> to false
+...................................................................................................................................
+
+What is the use of the exclusion element?
+exclude dependencies
+..................................................................................................................................
+
+Define SNAPSHOT in terms of maven.
+it is current deployment copy
+....................................................................................................................................
+
+Define Archetype.
+it is a maven plugin which is designed creation of project structre
+.....................................................................................................................................
+
+What does central repository consist of?
+it is used to large number of libraries frequently used.
+......................................................................................................................................
+
+Give the command for installation of the JAR file in a local repository.
+mvn install
+.....................................................................................................................................
+
+ Mention the phases of cleaning lifecycle?.
+The lifecycle of cleaning consist of:
+
+pre-clean
+clean
+post-clean
+....................................................................................................................................
+
+ What is the purpose of mvn clean command?
+The command removes the target directory before the starting of a build process.
+..................................................................................................................................
+
+ What is a MOJO?
+A MOJO stands for Maven plain Old Java Object.
+.....................................................................................................................................
+
+What is a repository?
+repository is directory where jar and POM files stored.
+there are 3 type
+local repository:Maven local repository is created by maven in your local system when you run any maven command.
+
+central:Maven community creates maven central repository on the web. 
+
+remote:aven remote repository is located on the web by different vendors. So you need to define the dependency in pom.xml file manually.
+ It is important because most of the libraries are missing from the central repository.
+ ...................................................................................................................................
+ 
+ What is POM?
+POM stands for Project Object Model. The pom.xml file contains information of project and
+ project configuration.
+....................................................................................................................................
+
+What are the build phases in Maven?
+validate
+compile
+test
+package
+integration-test
+verify
+install
+deploy
+......................................................................................................................................
+
+What is the command to package maven project?
+mvn -package  
+..................................................................................................................................
+
+What is the fully qualified artifact name of maven project?
+<groupId>:<artifactId>:<version>  
+...................................................................................................................................
+
+What is an archetype?
+Archetype is the maven plugin. It creates the project structure.
+...................................................................................................................................
+
+
+
+

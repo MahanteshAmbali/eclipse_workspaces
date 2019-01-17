@@ -1,0 +1,3 @@
+1001, Flipkart, 100, 90
+1002, WSRetail, 2000, 89
+1003, ValueSolu, 30, 29

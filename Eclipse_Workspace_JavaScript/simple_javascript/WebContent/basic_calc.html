@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Basic Calci</title>
+<script type="text/javascript">
+	var firstNumber = prompt("Enter 1st Digit");
+	var secondNumber = prompt("Enter 2nd Digit");
+	
+	function Calculator(){
+	
+		this.addition = function(var1, var2){
+			return (var1+var2);
+		}
+		
+		this.substraction = function(var1, var2){
+			return (var1-var2);
+		}
+		
+		this.multiplication = function(var1, var2){
+			return (var1*var2);
+		}
+
+		this.division = function(var1, var2){
+			if(var2 == 0){
+				alert("Divider cant be 0");
+			}else{
+				return (var1/var2);
+			}
+		}
+	}
+	
+	var result = new Calculator();
+	alert("Addition Result: "+result.addition(firstNumber, secondNumber));
+	alert("Substraction Result: "+result.substraction(firstNumber, secondNumber));
+	alert("Multiplication Result: "+result.multiplication(firstNumber, secondNumber));
+	alert("Division Result: "+result.division(firstNumber, secondNumber));
+	
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

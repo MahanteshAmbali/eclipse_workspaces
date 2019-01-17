@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Swap Contents</title>
+
+<script type="text/javascript">
+	function swapContents(){
+		var content1 = document.getElementById("myPar1");
+		var content2 = document.getElementById("myPar2");
+		
+		var dummyVal = content1;
+		
+		content1.innerHTML = content2;
+		content2.innerHTML = dummyVal;
+	}
+</script>
+</head>
+<body>
+	<p id = "myPar1"> Hello World.!</p>
+	<p id = "myPar2"> This is JavaScript</p>
+	 
+	<button onclick="swapContents()">Click To Swap</button>
+</body>
+</html>

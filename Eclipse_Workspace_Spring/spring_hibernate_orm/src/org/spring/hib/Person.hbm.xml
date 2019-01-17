@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+
+-->
+
+<hibernate-mapping package="org.spring.hib">
+
+    <class name="Person" table="Person_Spring_Hib">
+        <id name="id" column="P_ID"/>
+        
+        <property name="firstName"/>
+        
+        <property name="lastName" />
+
+        <property name="age" />
+        
+    </class>
+    
+    <sql-query name = "q1">
+    	select * from person_spring_hib
+    </sql-query>
+
+</hibernate-mapping>
+

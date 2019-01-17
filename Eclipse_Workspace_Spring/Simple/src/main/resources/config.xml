@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id = "p1" class = "com.first.beans.Person">
+		<property name = "firstName" value = "Mahantesh"/>
+		<property name = "age" value = "29"/>
+	</bean>      
+	
+	<bean id = "s1" class = "com.first.beans.Student">
+		<property name = "firstName" value = "Sagar"/>
+		<property name = "lastName" value = "Ambali"/>
+	</bean>  
+	
+	<bean id = "e1" class = "com.first.beans.Employee">
+		<constructor-arg index = "0" value = "Constructor Injection Val1"></constructor-arg>
+		<constructor-arg index = "1" value = "Constructor Injection Val2"></constructor-arg>
+	</bean>
+	
+	<bean id = "test" class = "com.first.beans.Test" scope = "prototype">
+		<property name = "param1" value = "DEll Lenovo"></property>
+	</bean>
+	
+	<bean id = "test1" class = "com.first.beans.Test" scope = "prototype">
+		<property name = "param1" value = "id test1"></property>
+	</bean>
+	
+	<bean id = "test2" class = "com.first.beans.Test" scope = "prototype">
+		<property name = "param1" value = "id test2"></property>
+	</bean>
+	
+	<bean id = "test3" class = "com.first.beans.Test" scope = "prototype">
+		<property name = "param1" value = "id test3"></property>
+	</bean>
+</beans>

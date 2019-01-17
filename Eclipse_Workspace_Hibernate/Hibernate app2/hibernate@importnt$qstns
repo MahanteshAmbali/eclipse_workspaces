@@ -1,0 +1,203 @@
+What is hibernate in java?==> 
+Hibernate ORM (Hibernate in short) is an object-relational mapping tool for the Java programming language. 
+It provides a framework for mapping an object-oriented domain model to a relational database. 
+.........................................................................................................................................
+
+Why do we need hibernate in Java?==>  
+hibernate reduse lines of code by maintaining the object-table ifself returns the application in
+form of java object.
+..........................................................................................................................................
+
+difference between jpa and hibernate?==> 
+jpa is a interface hibernate is one implimentation of interface.jpa is secefication of accessing 
+persitsnce and managing data between Java objects / classes and a relational database. hibernate is jpa provider.
+..........................................................................................................................................
+
+What is the architecture of hibernate?==>
+ hibernate is makes use of database and configaration of data provides the service persistance
+to the application.
+ ........................................................................................................................................
+ 
+ What are the advantages of Hibernate over JDBC?==>
+ 1)it is used inheritance.
+ 2)it having cache concept
+ 3)Hiberante Wrapes JDBC Exception throws JDBCException or HibernateException.
+ 4) it provides jpa annotations.
+ 5)it helps for JDBC connection as well as JNDI(Java Naming and Directory Interface) DataSource for connection pool.
+........................................................................................................................................
+
+ Name some important interfaces of Hibernate framework?==>
+ 1)SessionFactory(org.hibernate.sessionFactory)==> SessionFactory is an immutable thread-safe cache of compiled mappings for a 
+ single database.used to get the Session objects for database operations.
+ 
+ 2)Session(org.Session.hibernate)==> Session is a single-threaded, short-lived object representing a conversation between the
+  application and the persistent store. It wraps JDBC java.sql.Connection and works as a factory for org.hibernate.
+ 
+ 3)Transaction (org.hibernate.Transaction)==> Transaction is a single-threaded, short-lived object used by the application to 
+ specify atomic units of work it means is the smallest unit of work . It abstracts the application from the underlying JDBC or
+  JTA transaction
+ (JTA is a general API for managing transactions in Java. It allows you to start, commit and rollback transactions in a
+  resource neutral way). 
+ ......................................................................................................................................
+ 
+ What is hibernate configuration file?
+ hibernate contain Database of a cpnfigaration and used to intilaize  SessionFactory and used  Configaration file is Dailect
+  inforamation.hibernate knows databae,mapping file or class details.
+  The org.hibernate.cfg.Configuration is used to build an immutable org.hibernate.SessionFactory . 
+  The mappings are compiled from various XML mapping files.
+   A org.hibernate.cfg.Configuration also allows you to specify configuration properties.
+ .....................................................................................................................................
+ 
+ What is hibernate mapping file?
+ Hibrnate mapping file is a entity beans( represents persistent data maintained in a database) fields and table column mapping.
+ .................................................................................................................................
+ 
+ Name some important annotations used for Hibernate mapping?
+ 1)javax.persistance.entity->it is used with model classes to entity bean
+ 2)javax.persistance.Table-> used with entity bean define Table name.
+ 3)javax.persistance.Access->it is a Access Types.
+ 4)javax.persistance.id-> used with primary key.
+ 5)javax.persistance.Embebedid->used with composite primary key.
+ 6)javax.persistance.GeneratedValue-> used with generation of primary key.
+ 7)javax.persistance.column->used to define database column name.
+ 8)javax.persistance.oneToone-> used to mapping Two entity beans.one-to-one,one-to-many,many -to-many.
+ 9)javax.persistance.Cascade->used with cascading between two entity beans.
+ 10)javax.persistance.Primarykeyjoincolumn-> used with property of foreign  key.
+ ..................................................................................................................................
+ 
+ What is Hibernate SessionFactory and how to configure it?
+ SessionFactory is a factory class to get the Session Object.SessionFactory is responsible for read the hibernate Configaration
+ Parameters to connect Database and provide Session object.
+ .................................................................................................................................
+ 
+ Hibernate SessionFactory is thread safe?
+ SessionFactory is immutable so it is thread safe.
+ ................................................................................................................................
+ 
+ What is Hibernate Session and how to get it?
+ Session is inteface between java application and hibernate.life cycle of session is beginning and end with transaction.
+ session methods are create,delete,read operations of persistance object.used in HQL language.
+ ....................................................................................................................................
+ 
+ Hibernate Session is thread safe?
+ Session is Object so it is not Thread safe.
+ ....................................................................................................................................
+ 
+ What is difference between openSession and getCurrentSession?
+ Hibernate SessionFactory getCurrentSession():-> method returns the session bound to the context. But for this to work, 
+ we need to configure it in hibernate configuration file
+ It creates a new Session if not exists, else use same session which is in current hibernate context.
+You do not need to flush and close session objects, it will be automatically taken care by Hibernate internally.
+In single threaded environment it is faster than openSession.
+You need to configure additional property. "hibernate.current_session_context_class" to call getCurrentSession method,
+ otherwise it will throw an exception.
+ 
+ Hibernate SessionFactory openSession() method:-> always opens a new session. We should close this session object once 
+ we are done with all the database operations. 
+ It always create new Session object.
+You need to explicitly flush and close session objects.
+In single threaded environment it is slower than getCurrentSession.
+You do not need to configure any property to call this method.
+ .....................................................................................................................................
+ 
+What is difference between Hibernate Session get() and load() method?
+get():-> get() returns the object by fetching it from database or from hibernate cache 
+  
+ load() :-> It will always return a “proxy” (Hibernate term) without hitting the database. 
+ In Hibernate, proxy is an object with the given identifier value, its properties are not initialized yet, 
+ it just look like a temporary fake object. If no row found ,it will throws an ObjectNotFoundException.
+ ...................................................................................................................................
+ 
+ What is hibernate caching? Explain Hibernate first level cache?
+ hibernate caches query data to make our application faster. hence reducing the throughput time of the application.
+ Hibernate first level cache is associated with the Session object.
+ ...................................................................................................................................
+ 
+What are different states of an entity bean?
+ Transient: When an object is never persisted or associated with any session, it’s in transient state. 
+ 			Transient instances calling save()or Update(),persist(),delete().
+ 		
+ Persistent: When an object is associated with a unique session, it’s in persistent state.
+ 			 Any instance returned by a get() or load() method is persistent.
+ 			 
+ Detached: When an object is previously persistent but not associated with any session, it’s in detached state.
+ 			 Detached instances may be made persistent by calling update(), saveOrUpdate(), lock() or replicate().
+......................................................................................................................................
+
+What are the collection types in Hibernate?
+Bag
+Set
+List
+Array
+Map
+.....................................................................................................................................
+
+How to implement relationships in hibernate?
+hibernate implement one-to-one, one-to-many and many-to-many relationships in hibernate. 
+.....................................................................................................................................
+
+How transaction management works in Hibernate?
+transaction is rasy in hibernate bcz most of the operations not permitted outside the  transaction.
+so after getting session from sessionFactory  we can call session beginTransaction() to start the transaction. 
+This method returns the Transaction reference that we can use later on to either commit or rollback the transaction.
+.....................................................................................................................................
+
+How to integrate log4j logging in hibernate application?
+Add log4j dependencies for maven project, if not maven then add corresponding jar files.
+
+Create log4j.xml configuration file or log4j.properties file and keep it in the classpath.
+ You can keep file name whatever you want because we will load it in next step.
+ 
+For standalone projects, use static block to configure log4j using DOMConfigurator or PropertyConfigurator. For web applications,
+ you can use ServletContextListener to configure it.
+ ....................................................................................................................................
+ 
+Difference between save() and saveorupdate() in hibernate?
+saveorupdate:->Hibernate saveOrUpdate results into insert or update queries based on the provided data.
+ If the data is present in the database, update query is executed.
+ 
+ save:->As the method name suggests, hibernate save() can be used to save entity to database.
+  We can invoke this method outside a transaction.
+  ...................................................................................................................................
+ 
+What is the difference between save() and persist() in hibernate?
+persist() – Hibernate persist is similar to save (with transaction) and it adds the entity object to the persistent context, 
+so any further changes are tracked.persist() also guarantees that it will not execute an INSERT statement if it is called outside 
+of transaction boundaries. 
+This is useful in long-running conversations with an extended Session/persistence context.
+  
+save()- does not guarantee the same, it returns an identifier, and if an INSERT has to be executed to get the identifier
+(e.g. “identity” generator, not “sequence”), this INSERT happens immediately, no matter if you are inside or outside of a transaction.
+This is not good in a long-running conversation with an extended Session/persistence context.
+ ............................................................................................................................................................
+ 
+Difference between hibernate session merge() vs update()?
+Hibernate handles persisting any changes to objects in the session when the session is flushed.
+update can fail if an instance of the object is already in the session. Merge should be used in that case.
+It merges the changes of the detached object with an object in the session, if it exists.
+ ....................................................................................................................................
+ 
+What is inverse true in hibernate?
+The real meaning is that it defines which side is the parent or the relationship owner for the two entities (parent or child).
+Hence, inverse=”true” in a Hibernate mapping shows that this class (the one with this XML definition) is the relationship owner;
+while the other class is the child.
+ ....................................................................................................................................
+ 
+What is the use of dialect in hibernate?
+Dialect means “the variant of a language”. Hibernate, as we know, is database agnostic. It can work with different databases.
+However, databases have proprietary extensions/native SQL variations, and set/sub-set of SQL standard implementations.
+Therefore at some point hibernate has to use database specific SQL.
+   ....................................................................................................................................
+   
+What is hbm2ddl in hibernate?
+hibernate.hbm2ddl.auto Automatically validates or exports schema DDL to the database when the SessionFactory is created.
+With create-drop, the database schema will be dropped when the SessionFactory is closed explicitly.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
